@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ceph-ansible
 ============
 
@@ -141,3 +142,9 @@ $ vagrant ssh mon0 -c "sudo ceph -s"
       pgmap v17: 192 pgs, 3 pools, 9470 bytes data, 21 objects
             205 MB used, 29728 MB / 29933 MB avail
                  192 active+clean
+=======
+ceph_automation
+===============
+
+automate our Ceph deployment in OpenStack environment
+>>>>>>> 2a33602638debac5cc7c0e96df5b9cb359046cff
