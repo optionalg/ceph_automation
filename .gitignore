@@ -2,3 +2,4 @@
 *.vdi
 *.keyring
 fetch/
+ansible.log

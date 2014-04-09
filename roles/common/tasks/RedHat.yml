@@ -14,10 +14,21 @@
   fail: msg="Distribution not supported {{ ansible_os_family }}"
   when: ansible_os_family not in ['Debian', 'RedHat']
 
+- name: yum install epel packages
+  yum: name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
+
+- name: update yum repo metadata
+  yum: name=* state=latest
+  ignore_errors: no
+
+
 - name: Install dependancies
-  yum: name={{ item }} state=present
+  yum: name={{ item }} state=latest
   with_items:
     - python-pycurl
+    - python-flask
+    - python-argparse
+    - python-requests
     - ntp
 
 - name: Install the Ceph key
