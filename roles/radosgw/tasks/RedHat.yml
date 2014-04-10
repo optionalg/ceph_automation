@@ -17,7 +17,11 @@
   rpm_key: key=http://dag.wieers.com/rpm/packages/RPM-GPG-KEY.dag.txt
 
 - name: Add special fastcgi repository
-  command: rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+  #command: rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+  yum: name=http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm state=present
+
+- name: Add Remi repository (for Httpd)
+  yum: name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm state=present
 
 - name: Install Apache, fastcgi, and Rados Gateway
   yum: name={{ item }} state=latest
